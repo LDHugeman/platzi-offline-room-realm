@@ -15,7 +15,7 @@ interface PreOrderDao {
     fun getPreOrders(): Flow<List<PreOrderEntity>>
 
     @Query("DELETE FROM pre_orders WHERE id = :id")
-    suspend fun deletePreOrder(id: String)
+    suspend fun deletePreOrder(id: Long)
 
     @Query("UPDATE pre_orders SET isSent = :isSent WHERE id = :id")
     suspend fun updatePreOrder(id: Long, isSent: Boolean)

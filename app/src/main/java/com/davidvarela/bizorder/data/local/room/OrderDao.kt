@@ -15,5 +15,5 @@ interface OrderDao {
     fun getOrders(): Flow<List<OrderEntity>>
 
     @Query("SELECT * FROM orders WHERE id = :id")
-    suspend fun getOrder(id: String): OrderEntity
+    suspend fun getOrderById(id: String): OrderEntity
 }

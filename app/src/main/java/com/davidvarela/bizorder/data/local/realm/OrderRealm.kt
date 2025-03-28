@@ -22,7 +22,8 @@ class OrderRealm @Inject constructor(
             realChange.realm.query(OrderObject::class).find()
         }
     }
-    suspend fun getOrder(id: String): OrderObject? {
+
+    suspend fun getOrderById(id: String): OrderObject? {
         return realm.query(OrderObject::class, "id == $0", id).first().find()
     }
 }
