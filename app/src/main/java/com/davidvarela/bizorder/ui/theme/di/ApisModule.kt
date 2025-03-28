@@ -1,12 +1,11 @@
 package com.davidvarela.bizorder.ui.theme.di
 
-import com.davidvarela.bizorder.ui.theme.data.BizOrderApi
+import com.davidvarela.bizorder.ui.theme.data.remote.BizOrderApi
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 import retrofit2.Retrofit
-import retrofit2.create
 import javax.inject.Singleton
 
 @Module

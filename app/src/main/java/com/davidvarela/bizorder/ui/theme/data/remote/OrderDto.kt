@@ -1,4 +1,4 @@
-package com.davidvarela.bizorder.ui.theme.data
+package com.davidvarela.bizorder.ui.theme.data.remote
 
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass

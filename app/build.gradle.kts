@@ -65,4 +65,8 @@ dependencies {
     implementation(libs.retrofit2.moshi)
     implementation(libs.moshi.kotlin)
     implementation(libs.logging.interceptor)
+    implementation(libs.androidx.room.runtime)
+    implementation(libs.androidx.room.ktx)
+    implementation(libs.androidx.room.compiler)
+    kapt(libs.androidx.room.compiler)
 }
