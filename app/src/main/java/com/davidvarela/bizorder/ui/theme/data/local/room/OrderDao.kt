@@ -1,4 +1,4 @@
-package com.davidvarela.bizorder.ui.theme.data.local
+package com.davidvarela.bizorder.ui.theme.data.local.room
 
 import androidx.room.Dao
 import androidx.room.Query
@@ -9,7 +9,7 @@ import kotlinx.coroutines.flow.Flow
 interface OrderDao {
 
     @Upsert
-    suspend fun insertOder(orderEntity: List<OrderEntity>)
+    suspend fun insertOrders(orderEntity: List<OrderEntity>)
 
     @Query("SELECT * FROM orders")
     fun getOrders(): Flow<List<OrderEntity>>
