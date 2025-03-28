@@ -24,7 +24,9 @@ class LocalDataStorage @Inject constructor(
 
     fun getOrdersRoom() = orderDao.getOrders()
 
-    suspend fun getOrderByOrderIdRoom(id: String) = orderDao.getOrderById(id)
+    suspend fun getOrderByOrderIdRoom(id: String) = runCatching {
+        orderDao.getOrderById(id)
+    }
 
     // orders REALM
 
