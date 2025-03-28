@@ -71,4 +71,5 @@ dependencies {
     implementation(libs.androidx.room.compiler)
     kapt(libs.androidx.room.compiler)
     implementation(libs.realm.kotlin)
+    implementation(libs.coil.compose)
 }
