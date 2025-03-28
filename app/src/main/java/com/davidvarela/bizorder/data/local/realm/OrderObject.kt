@@ -1,4 +1,4 @@
-package com.davidvarela.bizorder.ui.theme.data.local.realm
+package com.davidvarela.bizorder.data.local.realm
 
 import io.realm.kotlin.types.RealmObject
 import io.realm.kotlin.types.annotations.PrimaryKey

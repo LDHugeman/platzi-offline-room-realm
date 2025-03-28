@@ -1,4 +1,4 @@
-package com.davidvarela.bizorder.ui.theme.data.local.room
+package com.davidvarela.bizorder.data.local.room
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey

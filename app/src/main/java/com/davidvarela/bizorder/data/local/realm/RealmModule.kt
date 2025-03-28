@@ -1,4 +1,4 @@
-package com.davidvarela.bizorder.ui.theme.data.local.realm
+package com.davidvarela.bizorder.data.local.realm
 
 import dagger.Module
 import dagger.Provides

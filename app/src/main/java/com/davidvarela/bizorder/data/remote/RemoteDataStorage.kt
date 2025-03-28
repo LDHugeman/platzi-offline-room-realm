@@ -1,4 +1,4 @@
-package com.davidvarela.bizorder.ui.theme.data.remote
+package com.davidvarela.bizorder.data.remote
 
 import javax.inject.Inject
 

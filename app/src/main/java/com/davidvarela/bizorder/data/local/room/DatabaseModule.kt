@@ -1,4 +1,4 @@
-package com.davidvarela.bizorder.ui.theme.data.local.room
+package com.davidvarela.bizorder.data.local.room
 
 import android.app.Application
 import androidx.room.Room

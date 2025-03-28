@@ -1,4 +1,4 @@
-package com.davidvarela.bizorder.ui.theme.data.remote
+package com.davidvarela.bizorder.data.remote
 
 import retrofit2.Response
 import retrofit2.http.GET

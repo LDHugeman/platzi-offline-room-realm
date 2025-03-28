@@ -1,6 +1,6 @@
-package com.davidvarela.bizorder.ui.theme.di
+package com.davidvarela.bizorder.di
 
-import com.davidvarela.bizorder.ui.theme.data.remote.BizOrderApi
+import com.davidvarela.bizorder.data.remote.BizOrderApi
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

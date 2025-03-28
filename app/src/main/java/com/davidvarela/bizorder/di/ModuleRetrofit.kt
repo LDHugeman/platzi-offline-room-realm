@@ -1,4 +1,4 @@
-package com.davidvarela.bizorder.ui.theme.di
+package com.davidvarela.bizorder.di
 
 import dagger.Module
 import dagger.Provides
