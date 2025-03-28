@@ -3,7 +3,7 @@ package com.davidvarela.bizorder.data.local.room
 import androidx.room.Database
 import androidx.room.RoomDatabase
 
-@Database(entities = [OrderEntity::class, PreOrderEntity::class], version = 1)
+@Database(entities = [OrderEntity::class, PreOrderEntity::class], version = 1, exportSchema = false)
 abstract class AppDataBase: RoomDatabase() {
 
     abstract fun orderDao(): OrderDao
