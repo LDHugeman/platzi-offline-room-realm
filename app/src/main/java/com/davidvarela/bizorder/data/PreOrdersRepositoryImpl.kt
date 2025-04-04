@@ -1,5 +1,6 @@
 package com.davidvarela.bizorder.data
 
+import com.davidvarela.bizorder.data.local.realm.PreOrderObject
 import com.davidvarela.bizorder.data.local.room.PreOrderEntity
 import com.davidvarela.bizorder.data.remote.RemoteDataStorage
 import com.davidvarela.bizorder.domain.PreOrder
@@ -20,23 +21,28 @@ class PreOrdersRepositoryImpl(
                     item = preOrder.product,
                     isSent = result.isSuccess
                 )
+                /*PreOrderObject().apply {
+                    customerName = preOrder.customerName
+                    item = preOrder.product
+                    isSent = result.isSuccess
+                }*/
             )
         }
 
     override fun getPreOrders(): Flow<Result<List<PreOrder>>> {
-        return localDataStorage.getPreOrdersRoom().map { preOrders ->
+        return localDataStorage.getPreOrdersRealm().map { preOrders ->
             runCatching {
                 preOrders.map { it.toDomain() }
             }
         }
     }
 
-    override suspend fun deletePreOrder(id: Long) = localDataStorage.deletePreOrderIdRoom(id)
+    override suspend fun deletePreOrder(id: Long) = localDataStorage.deleteByPreOrderIdRealm(id)
 
     override suspend fun retrySync(id: Long) {
         val result = remoteDataStorage.savePreOrders()
         if (result.isSuccess) {
-            localDataStorage.retrySyncRoom(id, true)
+            localDataStorage.retrySyncRealm(id, true)
         }
     }
 }

@@ -51,7 +51,9 @@ class LocalDataStorage @Inject constructor(
 
     // preOrders REALM
 
-    suspend fun savePreOrderRealm(preOrder: PreOrderObject) = preoOrderRealm.insertPreOrder(preOrder)
+    suspend fun savePreOrderRealm(preOrder: PreOrderObject) = runCatching {
+        preoOrderRealm.insertPreOrder(preOrder)
+    }
 
     fun getPreOrdersRealm(): Flow<List<PreOrderObject>> = preoOrderRealm.getPreOrders()
 

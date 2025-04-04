@@ -14,7 +14,7 @@ class OrderRepositoryImpl(
     private val localDataStorage: LocalDataStorage
 ) : OrderRepository {
     override fun getOrders(): Flow<Result<List<Order>>> {
-        return localDataStorage.getOrdersRoom()
+        return localDataStorage.getOrdersRealm()
             .map { localOrders ->
                 Result.success(localOrders.map { it.toDomain() })
             }.onStart {
@@ -23,7 +23,7 @@ class OrderRepositoryImpl(
                 }
 
                 remoteResult.getOrNull()?.let { remoteOrders ->
-                    localDataStorage.upsertOrdersRoom(remoteOrders.map { it.toEntity() })
+                    localDataStorage.insertOrdersRealm(remoteOrders.map { it.toRealm() })
                 }
             }.catch { exception ->
                 emit(Result.failure(exception))
@@ -31,8 +31,8 @@ class OrderRepositoryImpl(
     }
 
     override suspend fun getOrderById(id: String) =
-        localDataStorage.getOrderByOrderIdRoom(id).mapCatching {
-            it.toDomain()
+        localDataStorage.getOrderByOrderIdRealm(id).mapCatching {
+            it?.toDomain()
         }
 
 }
