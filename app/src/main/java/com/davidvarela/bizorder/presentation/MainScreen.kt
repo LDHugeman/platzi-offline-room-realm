@@ -38,7 +38,7 @@ fun MainScreen(
             }
 
             composable(Screen.PreOrders.route) {
-
+                PreOrdersScreen(modifier = Modifier.padding(innerPadding))
             }
 
             composable(
