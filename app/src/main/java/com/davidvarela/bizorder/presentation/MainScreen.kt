@@ -34,7 +34,7 @@ fun MainScreen(
             }
 
             composable(Screen.Create.route) {
-
+                CreateScreen()
             }
 
             composable(Screen.PreOrders.route) {
