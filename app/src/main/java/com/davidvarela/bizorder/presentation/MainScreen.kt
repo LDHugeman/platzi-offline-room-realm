@@ -6,7 +6,9 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.navigation.compose.NavHost
 import androidx.navigation.NavHostController
+import androidx.navigation.NavType
 import androidx.navigation.compose.composable
+import androidx.navigation.navArgument
 import com.davidvarela.bizorder.presentation.navigation.BottomNavigationBar
 import com.davidvarela.bizorder.presentation.navigation.Screen
 
@@ -26,7 +28,9 @@ fun MainScreen(
             composable(Screen.Home.route) {
                 HomeScreen(
                     modifier = Modifier.padding(innerPadding)
-                )
+                ) {
+                    navHostController.navigate(Screen.DetailOrder.getDetailRoute(it))
+                }
             }
 
             composable(Screen.Create.route) {
@@ -35,6 +39,20 @@ fun MainScreen(
 
             composable(Screen.PreOrders.route) {
 
+            }
+
+            composable(
+                route = Screen.DetailOrder.route,
+                arguments = listOf(
+                    navArgument(Screen.DetailOrder.ARG_ORDER_ID) {
+                        type = NavType.StringType
+                    }
+                )
+            ) {
+                DetailScreen(
+                    modifier = Modifier.padding(innerPadding),
+                    onBack = {navHostController.popBackStack()}
+                )
             }
         }
     }

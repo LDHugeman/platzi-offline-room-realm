@@ -2,6 +2,7 @@ package com.davidvarela.bizorder.presentation
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -36,7 +37,8 @@ import com.davidvarela.bizorder.domain.Order
 @Composable
 fun HomeScreen(
     modifier: Modifier,
-    viewModel: OrderViewModel = hiltViewModel()
+    viewModel: OrderViewModel = hiltViewModel(),
+    navigateToDetail: (String) -> Unit = {}
 ) {
 
     val state = viewModel.homeState.collectAsState()
@@ -77,7 +79,9 @@ fun HomeScreen(
                 verticalArrangement = Arrangement.spacedBy(12.dp)
             ) {
                 items(state.value.data) { item ->
-                    ItemView(item = item)
+                    ItemView(item = item) {
+                        navigateToDetail(item.id)
+                    }
                 }
             }
         }
@@ -86,10 +90,13 @@ fun HomeScreen(
 
 @Composable
 fun ItemView(
-    item: Order
+    item: Order,
+    navigateToDetail: () -> Unit
 ) {
     Row(
-        modifier = Modifier.fillMaxWidth(),
+        modifier = Modifier
+            .clickable { navigateToDetail() }
+            .fillMaxWidth(),
         verticalAlignment = Alignment.CenterVertically,
         horizontalArrangement = Arrangement.SpaceBetween
     ) {
@@ -152,5 +159,5 @@ fun PreviewItemView() {
             total = 100.0,
             imageUrl = "https://via.placeholder.com/150"
         )
-    )
+    ) {}
 }

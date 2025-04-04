@@ -14,4 +14,8 @@ sealed class Screen (
     data object Create : Screen("create", "Crear", Icons.Default.Add)
     data object Home : Screen("home", "Órdenes", Icons.Default.Home)
     data object PreOrders : Screen("list", "Pre-órdenes", Icons.AutoMirrored.Filled.List)
+    data object DetailOrder: Screen("detail/{order_id}", "Detalle", Icons.Default.Home) {
+        fun getDetailRoute(orderId: String) = "detail/$orderId"
+        const val ARG_ORDER_ID = "order_id"
+    }
 }
